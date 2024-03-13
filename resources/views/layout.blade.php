@@ -58,11 +58,29 @@
          <a href=""><img src={{ URL('/images/smallcamera.png') }} alt="smallcamera"></a>
         </div>
       </div>
-
-
-
-
-
       @yield('eljos2')
+
+      <footer class="footer d-flex flex-wrap justify-content-center align-items-center">
+       <div class="prim_f">
+        <a href={{ route('home') }} class="footer_logo"><img src={{ URL('/images/Logo.svg') }} alt=""></a>
+        <p>Nisi, purus vitae, ultrices nunc. Sit ac sit suscipit hendrerit. Gravida massa volutpat aenean odio erat nullam fringilla.</p>
+        <div class="social d-flex justify-content-start align-items-center">
+          <a href=""><i class="bi bi-facebook"></i></a>
+          <a href=""><i class="bi bi-instagram"></i></a>
+          <a href=""><i class="bi bi-twitter"></i></a>  
+          <a href=""><i class="bi bi-linkedin"></i></a>
+          <a href=""><i class="bi bi-youtube"></i></a>
+        </div>
+       </div>
+        <div class="doi_f">
+          <h3>Quick links</h3>
+          <ul class="nav d-flex flex-column mb-2 justify-content-center">
+            <li><a href={{ route('home') }} class="@yield('active1')">Home</a></li>
+            <li><a href={{ route('about') }} class="@yield('active2')">About</a></li>
+            <li><a href={{ route('shop') }} class="@yield('active3')">Shop</a></li>
+            <li><a href={{ route('contact') }} class="@yield('active4')">Contact</a></li>
+          </ul>
+        </div>
+      </footer>
 </body>
 </html>

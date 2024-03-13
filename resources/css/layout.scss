@@ -9,6 +9,9 @@ $butstan: #000000;
 $fontsizenav: 16px;
 $evidentiere :#72AEC8;
 $h2:30px;
+$p: 16px;
+$h3:20px;
+$pcolor: #3A3A3A;
 
 body{
     background-color: $bgcolor;
@@ -89,6 +92,7 @@ input[type=text]{
 
 .ultjos{
     gap: 19px;
+    margin-bottom: 100px;
 }
 
 .ultjos img{
@@ -106,4 +110,63 @@ input[type=text]{
 .ultjos img:hover{
     filter: brightness(0.8);
     background-color: #0000007b !important
+}
+
+.prim_f{
+    width: 339px;
+}
+
+.prim_f p{
+    font-size: $p;
+    color: $pcolor;
+    width: 339px;
+    letter-spacing: 0.48px;
+    font-weight: 300;
+}
+
+footer .footer_logo{
+    margin-bottom: 10px;
+}
+
+.social{
+    width: 208px;
+    gap: 30px;
+}
+
+
+.social a{
+    color: #D7DDDF;
+    transition: color 0.3s ease-in-out;
+}
+
+.social a:before{
+    color: #72AEC8 !important;
+}
+
+.social a:hover{
+    color: #72AEC8 !important;
+}
+
+.social i:hover{
+    color: #72AEC8 !important;
+}
+
+footer{
+    gap: 140px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h3{
+    font-size: $h3;
+    text-transform: uppercase;
+}
+
+.doi_f .nav ul{
+    gap: 8px;
+}
+
+.doi_f a{
+    color: $txnegru;
+    text-decoration: none !important;
 }
