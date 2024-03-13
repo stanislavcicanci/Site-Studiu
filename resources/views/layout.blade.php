@@ -7,12 +7,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    @yield('custom_css')
     @vite(['resources/css/app.css','resources/css/layout.scss', 'resources/js/app.js'])
     <title></title>
 </head>
 <body>
+  @yield('header')
     <div class="container">
-        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4">
+        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3">
           <div class="col-md-3 mb-2 mb-md-0">
             <a href="{{ route('home') }}" class="d-inline-flex link-body-emphasis text-decoration-none">
              <img src={{ URL('/images/Logo.svg') }} alt="">
@@ -35,8 +37,8 @@
           </div>
         </header>
       </div>
-      @yield('header')
-
+      
+      @yield('eljos1')
       <div class="conainer penuljos d-flex justify-content-space-around align-items-center flex-wrap">
        <div class="pen_pr">
         <h2 class="col-12">Subscribe Us now</h2>
@@ -46,8 +48,8 @@
         <input type="text" name="" id="" placeholder="Your email address here"> <input type="button" value="Subscribe">
        </div>
       </div>
-      @yield('eljos1')
-
+     
+      @yield('eljos2')
       <div class="container">
         <h2 class="el2jt text-center mb-5">Shop our insta</h2>
         <div class="ultjos d-flex flex-wrap">
@@ -58,9 +60,9 @@
          <a href=""><img src={{ URL('/images/smallcamera.png') }} alt="smallcamera"></a>
         </div>
       </div>
-      @yield('eljos2')
-
-      <footer class="footer d-flex flex-wrap justify-content-center align-items-center">
+      
+      @yield('footer')
+      <footer class="footer d-flex flex-wrap justify-content-center align-items-top">
        <div class="prim_f">
         <a href={{ route('home') }} class="footer_logo"><img src={{ URL('/images/Logo.svg') }} alt=""></a>
         <p>Nisi, purus vitae, ultrices nunc. Sit ac sit suscipit hendrerit. Gravida massa volutpat aenean odio erat nullam fringilla.</p>
@@ -81,6 +83,29 @@
             <li><a href={{ route('contact') }} class="@yield('active4')">Contact</a></li>
           </ul>
         </div>
+
+        <div class="trei_f">
+          <h3>Help & info</h3>
+          <ul class="nav d-flex flex-column mb-2 justify-content-center">
+            <li><a href="" >Track Your Order</a></li>
+            <li><a href="" >Returns policies</a></li>
+            <li><a href="" >Shipping + Delivery </a></li>
+            <li><a href="" >Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="patru_f d-flex flex-column justify-content-center text-left">
+          <h3>Contact us</h3>
+          <div class="el_pat_f">
+            <p>Do you have any queries or suggestions?</p>
+          <a href="">stanislavacicanci@gmail.com</a>
+          </div>
+         <div class="el_pat_f">
+          <p>If you need support? Just give us a call.</p>
+          <a href="">+373 68 111 234</a>
+         </div>
+        </div>
       </footer>
-</body>
+      
+    </body>
 </html>

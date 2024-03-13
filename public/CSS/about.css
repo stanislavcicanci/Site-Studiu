@@ -1,0 +1,27 @@
+.priv{
+    width: 260px;
+    height: 77px;
+    gap: 14px;
+}
+
+.privilegii{
+    gap: 55px;
+}
+
+.privilegii i{
+    color: #72AEC8;
+}
+
+
+.min_priv h4{
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 400;
+    color: #272727;
+}
+
+.min_priv p{
+    font-size: 16px;
+    font-weight: 300;
+    color: #3A3A3A;
+}

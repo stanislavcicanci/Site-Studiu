@@ -8,6 +8,7 @@ $buthov: #72AEC8;
 $butstan: #000000;
 $fontsizenav: 16px;
 $evidentiere :#72AEC8;
+$h1:82;
 $h2:30px;
 $p: 16px;
 $h3:20px;
@@ -29,6 +30,7 @@ header a{
     color: $txnegru !important;
     font-size: $fontsizenav;
     transition: color 0.2s;
+    margin-bottom: 0 !important;
 }
 
 header{
@@ -139,11 +141,15 @@ footer .footer_logo{
     transition: color 0.3s ease-in-out;
 }
 
+.social i{
+    color: #D7DDDF;
+}
+
 .social a:before{
     color: #72AEC8 !important;
 }
 
-.social a:hover{
+.social a, .trei_f a:hover{
     color: #72AEC8 !important;
 }
 
@@ -166,7 +172,35 @@ h3{
     gap: 8px;
 }
 
-.doi_f a{
+.doi_f a, .trei_f a{
     color: $txnegru;
     text-decoration: none !important;
+}
+
+.patru_f{
+    gap: 10px;
+}
+
+.patru_f p{
+    width: 242px;
+    color: $pcolor;
+    margin-bottom: 0;
+    font-weight: 300;
+}
+
+.patru_f a{
+    color: $butstan;
+    font-weight: 600;
+}   
+
+.patru_f a:hover{
+    color: $buthov;
+}
+
+h1{
+    font-size: $h1;
+    color: #272727;
+    font-size: 83px;
+    font-style: normal;
+    font-weight: 300;
 }
