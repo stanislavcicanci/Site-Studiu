@@ -47,6 +47,24 @@
             </div>
         </div>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="slider text-center  d-flex justify-content-center align-items-center text-center">
+        <i class="bi bi-quote" style="transform: rotate(180deg); font-size: 60px; color: #EBEFF1;"></i>
+        <p>“Tempus oncu enim pellen tesque este pretium in neque, elit morbi sagittis lorem habi mattis Pellen tesque pretium feugiat vel morbi suspen dise sagittis lorem habi tasse morbi.”</p>
+    </div>
 @endsection
 
 @section('eljos2')

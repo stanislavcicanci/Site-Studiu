@@ -84,6 +84,12 @@ input[type=button]{
     border: none;
     text-transform: uppercase;
     color: $bgcolor;
+    transition: background-color 0.2s;
+}
+
+input[type=button]:hover{
+   text-decoration: dotted underline;
+   background-color: #3888aa;
 }
 
 input[type=text]{
@@ -203,4 +209,32 @@ h1{
     font-size: 83px;
     font-style: normal;
     font-weight: 300;
+}
+
+hr{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.copy{
+    color: #3A3A3A;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    margin-bottom: 26px;
+}
+
+@media screen and (max-width: 1024px) {
+    input[type=text]{
+        width: auto !important;
+        width: 90% !important;
+    }
+
+    header{
+        margin-bottom: 15vw;
+    }
+
+    hr{
+        margin-top: 3vw;
+    }
 }

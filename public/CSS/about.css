@@ -6,6 +6,7 @@
 
 .privilegii{
     gap: 55px;
+    margin-bottom: 120px;
 }
 
 .privilegii i{
@@ -25,3 +26,117 @@
     font-weight: 300;
     color: #3A3A3A;
 }
+
+.sec_1{
+    margin-left: auto;
+    margin-right: auto;
+    gap: 70px;
+    margin-bottom: 120px;
+}
+
+.sec_1 img {
+    max-width: 100%;
+    height: auto;
+    width: 640px;
+    height: 603px;
+    transition: filter 0.3s ease;
+}
+
+.sec_1 img:hover{
+    filter: brightness(0.8);
+    background-color: #0000007b !important
+}
+
+.el_sec1 h2{
+    text-transform: uppercase !important;
+}
+
+.el_sec1 p{
+    width: 590px;
+    color: #3A3A3A;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    margin-bottom: 2rem;
+}
+
+.el_sec1 button{
+    padding: 16px 50px;
+    background-color: #272727;
+    color: white;
+    border: none;
+    overflow: unset;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+.el_sec1 button:hover{
+    background-color: #72AEC8;
+    color: white;
+}
+
+.slider{
+    flex-direction: column;
+}
+
+.slider p {
+    color: #3A3A3A;
+    width: 1015px;
+    text-align: center;
+    font-size: 34px;
+    font-style: normal;
+    font-weight: 300;
+}
+
+
+.about{
+    height: 281px;
+    color: #000;
+    background-color: #EDF1F3;
+    text-transform: uppercase;
+    margin-bottom: 120px;
+}   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 1024px) {
+    .slider p {
+        width: auto;
+        max-width: 100%;
+        margin: 0 auto;
+        font-size: 3.5vw;
+        padding: 0 1rem;
+    }
+
+    .sec_1 img {
+        width: 50%;
+        height: auto;
+    }
+    .el_sec1{
+        width: auto;
+        max-width: 100%;
+        margin: 0 auto;
+        font-size: 3.5vw;
+        padding: 0 1rem;
+    }
+
+    .el_sec1 p{
+        max-width: 100%;
+    }
+}
+

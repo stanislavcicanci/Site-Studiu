@@ -69,3 +69,30 @@
     font-weight: 300;
     color: #3A3A3A;
 }
+
+
+
+
+
+.slider{
+    flex-direction: column;
+}
+.slider p {
+    color: #3A3A3A;
+    width: 1015px;
+    text-align: center;
+    font-size: 34px;
+    font-style: normal;
+    font-weight: 300;
+}
+
+
+
+@media screen and (max-width: 1024px) {
+    .slider p {
+        width: auto;
+        max-width: 100%;
+        margin: 0 auto;
+        font-size: 5vw;
+    }
+}

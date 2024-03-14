@@ -25,4 +25,14 @@ class RouteController extends Controller
         return view('about');
     
     }
+
+    public function Login() {
+        return view('login');
+    
+    }
+
+    public function Signup() {
+        return view('signup');
+    
+    }
 }
