@@ -14,8 +14,8 @@
 <body>
         <div class="back">
             <div class="home_b d-flex align-items-center">
-                <i class="bi bi-arrow-left"></i>
-                <h3>Home</h3>
+                <a href={{ route('home') }}><i class="bi bi-arrow-left"></i></a>
+               <a href={{ route('home') }}> <h3>Home</h3></a>
             </div>
         </div>
 
@@ -34,12 +34,12 @@
             <div class="input">
                 <i class="bi bi-lock"></i>
                 <label for="password" class="password">Password</label>
-                <input type="text" id="password">
+                <input type="password" id="password">
             </div>
 
             
-            <div class="cont_log d-block justify-content-center align-items-center">
-                <button>Next</button> <p>or</p> <a href={{ route('signup') }} style="color: #72AEC8">Sign Up</a>
+            <div class="cont_log d-flex justify-content-center align-items-center">
+                <button>Next</button> <p>or <a href={{ route('signup') }} style="color: #72AEC8">Sign Up</a></p>
             </div>
             </div>
 
@@ -48,55 +48,68 @@
 </body>
 </html>
 <script>
-    let inputs = document.querySelectorAll('input');
-    let labels = document.querySelectorAll('label');
+    function checkInputs() {
+        let inputs = document.querySelectorAll('input');
+        let labels = document.querySelectorAll('label');
 
-    inputs.forEach((inputElement, index) => {
-        let icon = inputElement.parentElement.querySelector('i');
+        inputs.forEach((inputElement, index) => {
+            let icon = inputElement.parentElement.querySelector('i');
 
-        inputElement.addEventListener('focus', () => {
-            labels[index].style.fontSize = "14px";
-            labels[index].style.color = "#72AEC8";
-            labels[index].style.transition = "top 1s, font-size 1s, transform 1s, color 1s";
-            labels[index].style.transform = "translateY(-30px)";
-        });
-
-        inputElement.addEventListener('blur', () => {
-            if (inputElement.value === '') {
-                labels[index].style.top = "0";
-                labels[index].style.fontSize = "16px";
-                labels[index].style.color = "#000000";
-                labels[index].style.transition = "top 1s, font-size 1s, transform 1s, color 1s";
-                labels[index].style.transform = "translateY(0)";
-            }
-        });
-
-        inputElement.addEventListener('input', () => {
-            if (inputElement.value !== '') {
+            inputElement.addEventListener('focus', () => {
                 labels[index].style.fontSize = "14px";
                 labels[index].style.color = "#72AEC8";
                 labels[index].style.transition = "top 1s, font-size 1s, transform 1s, color 1s";
                 labels[index].style.transform = "translateY(-30px)";
-                icon.classList.add('green');
-            } else {
-                icon.classList.remove('green');
-            }
-        });
-    });
+            });
 
-    document.addEventListener('click', (event) => {
-        if (!event.target.closest('label')) {
-            labels.forEach(labelElement => {
-                if (!labelElement.previousElementSibling || labelElement.previousElementSibling !== document.activeElement) {
-                    if (labelElement.previousElementSibling.value === '') {
-                        labelElement.style.top = "0";
-                        labelElement.style.fontSize = "16px";
-                        labelElement.style.color = "#000000";
-                        labelElement.style.transition = "top 1s, font-size 1s, transform 1s, color 1s";
-                        labelElement.style.transform = "translateY(0)";
+            inputElement.addEventListener('blur', () => {
+                if (inputElement.value === '') {
+                    labels[index].style.top = "0";
+                    labels[index].style.fontSize = "16px";
+                    labels[index].style.color = "#000000";
+                    labels[index].style.transition = "top 1s, font-size 1s, transform 1s, color 1s";
+                    labels[index].style.transform = "translateY(0)";
+                }
+            });
+
+            inputElement.addEventListener('input', () => {
+                if (inputElement.value !== '') {
+                    labels[index].style.fontSize = "14px";
+                    labels[index].style.color = "#72AEC8";
+                    labels[index].style.transition = "top 1s, font-size 1s, transform 1s, color 1s";
+                    labels[index].style.transform = "translateY(-30px)";
+                    icon.classList.add('activ');
+                } else {
+                    icon.classList.remove('activ');
+                }
+            });
+
+
+            inputElement.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter') {
+                    if (index < inputs.length - 1) {
+                        inputs[index + 1].focus();
                     }
                 }
             });
-        }
-    });
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!event.target.closest('label')) {
+                labels.forEach(labelElement => {
+                    if (!labelElement.previousElementSibling || labelElement.previousElementSibling !== document.activeElement) {
+                        if (labelElement.previousElementSibling.value === '') {
+                            labelElement.style.top = "0";
+                            labelElement.style.fontSize = "16px";
+                            labelElement.style.color = "#000000";
+                            labelElement.style.transition = "top 1s, font-size 1s, transform 1s, color 1s";
+                            labelElement.style.transform = "translateY(0)";
+                        }
+                    }
+                });
+            }
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', checkInputs);
 </script>
