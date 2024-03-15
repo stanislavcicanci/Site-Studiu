@@ -67,7 +67,7 @@
             inputElement.addEventListener('focus', () => {
                 labels[index].style.fontSize = "14px";
                 labels[index].style.color = "#72AEC8";
-                labels[index].style.transition = "top 1s, font-size 1s, transform 1s, color 1s";
+                labels[index].style.transition = "top 0.5s, font-size 0.5s, transform 0.5s, color 0.5s";
                 labels[index].style.transform = "translateY(-30px)";
             });
 
@@ -76,7 +76,7 @@
                     labels[index].style.top = "0";
                     labels[index].style.fontSize = "16px";
                     labels[index].style.color = "#000000";
-                    labels[index].style.transition = "top 1s, font-size 1s, transform 1s, color 1s";
+                    labels[index].style.transition = "top 0.5s, font-size 0.5s, transform 0.5s, color 0.5s";
                     labels[index].style.transform = "translateY(0)";
                 }
             });
@@ -85,7 +85,7 @@
                 if (inputElement.value !== '') {
                     labels[index].style.fontSize = "14px";
                     labels[index].style.color = "#72AEC8";
-                    labels[index].style.transition = "top 1s, font-size 1s, transform 1s, color 1s";
+                    labels[index].style.transition = "top 0.5s, font-size 0.5s, transform 0.5s, color 0.5s";
                     labels[index].style.transform = "translateY(-30px)";
                     icon.classList.add('activ');
                 } else {
@@ -111,7 +111,7 @@
                             labelElement.style.top = "0";
                             labelElement.style.fontSize = "16px";
                             labelElement.style.color = "#000000";
-                            labelElement.style.transition = "top 1s, font-size 1s, transform 1s, color 1s";
+                            labelElement.style.transition = "top 0.5s, font-size 0.5s, transform 0.5s, color 0.5s";
                             labelElement.style.transform = "translateY(0)";
                         }
                     }
