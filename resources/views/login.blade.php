@@ -19,7 +19,7 @@
             </div>
         </div>
 
-        <div class="content d-flex flex-wrap align-items-center justify-content-center">
+        <div class="content d-flex flex-wrap align-items-center">
             <img src={{ URL('images/Login.png') }} alt="">
             <div class="continut_log d-block justify-content-center align-items-center">
               <div class="text">
