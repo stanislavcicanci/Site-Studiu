@@ -1,0 +1,100 @@
+.about{
+    height: 281px;
+    color: #000;
+    background-color: #EDF1F3;
+    text-transform: uppercase;
+    margin-bottom: 120px;
+    margin-top: 2vw;
+}   
+
+.sec1_el2_c{
+    gap: 20px;
+}
+
+.sec1_cont{
+    gap: 20px;
+}
+
+.sec1_cont h2{
+    color: #272727;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    margin-bottom: 10px;
+    text-transform: uppercase !important;
+}
+
+.sec1_cont p{
+    color: #3A3A3A;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    margin-bottom: 30px;
+}
+
+
+.sec1_cont h3{
+    color: #272727;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    text-decoration-line: underline;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+}
+
+.sec1_cont h4{
+    color: #3A3A3A;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+input[type="text"], input[type="phone"]{
+    padding-top: 20px !important;
+    padding-left: 20px !important;
+    padding-bottom: 20px !important;
+    border: 1px solid #D9D9D9 !important;
+    outline: none !important;
+    color: #3A3A3A;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+}
+
+.in_text{
+    width: 310px !important;
+}
+
+.inp_1{
+    gap: 20px;
+}
+
+.inputuri{
+    flex-direction: column;
+    gap: 30px;
+}
+
+.inp_2{
+    width: 640px !important;
+}
+
+
+.contact_1b{
+    padding: 16px 50px !important;
+    background-color: #000 !important;
+    color: white !important; 
+    border: none  !important;
+    outline: none !important;
+    transition: all 5s ease;
+    text-decoration: none !important;
+    margin-left: 0 !important;
+}
+
+
+.contact_1b:hover{
+    background-color: #72AEC8 !important;
+    color: #000;
+} 
+
+

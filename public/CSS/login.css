@@ -12,7 +12,7 @@ body{
 
 .home_b{
     margin-left: 20vw;
-    margin-top: 30px;
+    margin-top: 15px;
     margin-bottom: 1vw;
 }
 
@@ -72,7 +72,7 @@ body{
     color: #3A3A3A;
 }
 
-.activ {
+.active {
     color: #72AEC8 !important;
 }
 
@@ -107,7 +107,7 @@ label {
     font-size: 16px;
     color: #000000;
     transform: translateY(0);
-    transition: top 1s, font-size 1s, transform 1s, color 1s;
+    transition: top 0.5s, font-size 0.5s, transform 0.5s, color 0.5s;
 }
 
 input:focus + label {
@@ -142,4 +142,10 @@ input:focus + label {
     color: white;
     border-color: #72AEC8;
     background-color: #72AEC8;
+}
+
+.mesajele{
+    position: absolute;
+    top: 10px;
+    left: 50%;
 }

@@ -14,28 +14,35 @@
 </head>
 <body>
   @yield('header')
-    <div class="container">
-        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3">
-          <div class="col-md-3 mb-2 mb-md-0">
-            <a href="{{ route('home') }}" class="d-inline-flex link-body-emphasis text-decoration-none">
-             <img src={{ URL('/images/Logo.svg') }} alt="">
-            </a>
-          </div>
-    
-          <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 gap-4 ml-5">
-            <li><a href={{ route('home') }} class="@yield('active1')">Home</a></li>
-            <li><a href={{ route('about') }} class="@yield('active2')">About</a></li>
-            <li><a href={{ route('shop') }} class="@yield('active3')">Shop</a></li>
-            <li><a href={{ route('contact') }} class="@yield('active4')">Contact</a></li>
-          </ul>
-    
-          <div class="col-md-3 text-end d-flex gap-3 align-items-center justify-content-end">
-           <a href=""><i class="bi bi-search"></i></a>
-           <a href={{ route('login') }}><i class="bi bi-person-fill"></i></a>
-           <a href=''><i class="bi bi-cart3"></i>(0)</a>
-          </div>
-        </header>
-      </div>
+  <div class="navig_t">
+    <div class="navigarea container">
+      <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3">
+        <div class="col-md-3 mb-2 mb-md-0">
+          <a href="{{ route('home') }}" class="d-inline-flex link-body-emphasis text-decoration-none">
+           <img src={{ URL('/images/Logo.svg') }} alt="">
+          </a>
+        </div>
+  
+        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 gap-4 ml-5">
+          <li><a href={{ route('home') }} class="@yield('active1')">Home</a></li>
+          <li><a href={{ route('about') }} class="@yield('active2')">About</a></li>
+          <li><a href={{ route('shop') }} class="@yield('active3')">Shop</a></li>
+          <li><a href={{ route('contact') }} class="@yield('active4')">Contact</a></li>
+        </ul>
+  
+        <div class="col-md-3 text-end d-flex gap-3 align-items-center justify-content-end">
+         <a href=""><i class="bi bi-search"></i></a>
+         <a href={{ route('login') }}><i class="bi bi-person-fill"></i></a>
+         <a href={{ route('logout') }}>
+          @auth
+          {{ auth()->user()->username }}   
+          @endauth
+        </a>
+         <a href=''><i class="bi bi-cart3"></i>(0)</a>
+        </div>
+      </header>
+    </div>
+  </div>
       
       @yield('eljos1')
       <div class="conainer penuljos d-flex justify-content-space-around align-items-center flex-wrap">
@@ -52,11 +59,11 @@
       <div class="container">
         <h2 class="el2jt text-center mb-5">Shop our insta</h2>
         <div class="ultjos d-flex flex-wrap justify-content-center">
-         <a href=""><img src={{ URL('/images/iphone10.png') }} alt="iphone10"></a>
-         <a href=""><img src={{ URL('/images/heavywatch.png') }} alt="heavywatch"></a>
-         <a href=""><img src={{ URL('/images/iphone11pro.png') }} alt="iphone11pro"></a>
-         <a href=""><img src={{ URL('/images/technologyhack.png') }} alt="technologyhack"></a>
-         <a href=""><img src={{ URL('/images/smallcamera.png') }} alt="smallcamera"></a>
+         <a href=""><img src={{ URL('/images/iphone10.svg') }} alt="iphone10"></a>
+         <a href=""><img src={{ URL('/images/heavywatch.svg') }} alt="heavywatch"></a>
+         <a href=""><img src={{ URL('/images/iphone11pro.svg') }} alt="iphone11pro"></a>
+         <a href=""><img src={{ URL('/images/technologyhack.svg') }} alt="technologyhack"></a>
+         <a href=""><img src={{ URL('/images/smallcamera.svg') }} alt="smallcamera"></a>
         </div>
       </div>
       

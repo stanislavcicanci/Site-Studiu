@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
+use Illuminate\Support\Facades\Session;
 
 class RouteController extends Controller
 {
@@ -27,12 +31,63 @@ class RouteController extends Controller
     }
 
     public function Login() {
+        if(Auth::check()) {
+            return redirect(route('home'));
+        }
         return view('login');
     
     }
 
     public function Signup() {
+        if(Auth::check()) {
+            return redirect(route('home'));
+        }
         return view('signup');
-    
     }
+
+    public function LoginPost(Request $request) {
+        $request->validate([
+            'username' => 'required',
+            'password' => 'required',
+        ]);
+
+        $credentials = $request->only('username', 'password');
+        if (Auth::attempt($credentials)) {
+            return redirect()->intended(route('home'));
+        }
+        
+        return redirect(route('login'))->with("error", "Invalid username or password");
+    }
+
+     public function SignupPost(Request $request) {
+        $request->validate([
+            'username' => 'required|unique:users',
+            'email' => 'required|email|unique:users',
+            'password' => 'required',
+            'confirm_password' => 'required|same:password',
+    ], [
+        'confirm_password.same' => 'Passwords do not match.',
+    ]);
+
+        //  dd($request->username);
+
+        $data['username'] = $request->username;
+        $data['email'] = $request->email;
+        $data['password'] = Hash::make($request->password);
+        $user = User::create($data);
+       
+        if(!$user) {
+            return redirect(route('signup'))->with("error", "Registration failed, try again. ");
+        }
+
+        return redirect(route('login'))->with("success", "Registration successful. Please login. ");
+    }
+
+    function logout(){
+        Session::flush();
+        Auth::logout();
+        return redirect(route('login'));
+    }
+
+    
 }

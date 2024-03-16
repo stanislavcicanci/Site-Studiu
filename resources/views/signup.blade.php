@@ -19,7 +19,29 @@
             </div>
         </div>
 
-        <div class="content d-flex flex-wrap align-items-center justify-content-center">
+        <form action="{{ route('signup.post') }}" method="POST" class="content d-flex flex-wrap align-items-center">
+            @csrf
+            <div class="mesajele mt-5">
+                @if($errors->any())
+                    @foreach($errors->all() as $error)
+                        <div class="alert alert-danger">
+                            {{$error}}
+                        </div>
+                    @endforeach
+                @endif
+
+                @if(session()->has('error'))
+                    <div class="alert alert-danger">
+                        {{ session('error') }}
+                    </div>
+                @endif
+
+                @if(session()->has('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
+            </div>
             <img src={{ URL('images/Signup.png') }} alt="">
             <div class="continut_log d-block justify-content-center align-items-center">
               <div class="text">
@@ -28,38 +50,38 @@
               <div class="input">
                 <i class="bi bi-person-circle"></i>
                 <label for="user_f" class="user_f">Username</label>
-                <input type="text" id="user_f">
+                <input type="text" id="user_f" name='username'>
             </div>
             <div class="input">
                 <i class="bi bi-envelope-at"></i>
                 <label for="mail" class="mail">E-mail</label>
-                <input type="email" id="mail">
+                <input type="email" id="mail" name='email'>
             </div>
             <div class="input">
                 <i class="bi bi-key" style="rotate: 45deg"></i>
                 <label for="password" class="password">Password</label>
-                <input type="password" id="password">
+                <input type="password" id="password" name='password'>
             </div>
             <div class="input">
                 <i class="bi bi-key-fill" style="rotate: 45deg"></i>
                 <label for="password_c" class="password_c">Confirm Password</label>
-                <input type="password" id="password_c">
+                <input type="password" id="password_c" name="confirm_password">
             </div>
 
             
             <div class="cont_log d-flex justify-content-center align-items-center">
-                <button>Next</button> <p>or <a href={{ route('login') }} style="color: #72AEC8">Log in</a></p>
+                <button type="submit">Next</button> <p>or <a href={{ route('login') }} style="color: #72AEC8">Log in</a></p>
             </div>
             </div>
 
-        </div>
+        </form>
 
 </body>
 </html>
 <script>
-    function checkInputs() {
-        let inputs = document.querySelectorAll('input');
-        let labels = document.querySelectorAll('label');
+    document.addEventListener('DOMContentLoaded', function () {
+        let inputs = document.querySelectorAll('.input input');
+        let labels = document.querySelectorAll('.input label');
 
         inputs.forEach((inputElement, index) => {
             let icon = inputElement.parentElement.querySelector('i');
@@ -69,6 +91,7 @@
                 labels[index].style.color = "#72AEC8";
                 labels[index].style.transition = "top 1s, font-size 1s, transform 1s, color 1s";
                 labels[index].style.transform = "translateY(-30px)";
+             
             });
 
             inputElement.addEventListener('blur', () => {
@@ -78,6 +101,7 @@
                     labels[index].style.color = "#000000";
                     labels[index].style.transition = "top 1s, font-size 1s, transform 1s, color 1s";
                     labels[index].style.transform = "translateY(0)";
+                   
                 }
             });
 
@@ -87,38 +111,41 @@
                     labels[index].style.color = "#72AEC8";
                     labels[index].style.transition = "top 1s, font-size 1s, transform 1s, color 1s";
                     labels[index].style.transform = "translateY(-30px)";
-                    icon.classList.add('activ');
+                    icon.classList.add('active');
                 } else {
-                    icon.classList.remove('activ');
+                    icon.classList.remove('active');
                 }
             });
 
-      
-            inputElement.addEventListener('keydown', (event) => {
+            inputElement.addEventListener('keypress', (event) => {
                 if (event.key === 'Enter') {
-                    if (index < inputs.length - 1) {
-                        inputs[index + 1].focus();
+                    event.preventDefault();
+
+                    const nextIndex = index + 1;
+                    if (nextIndex < inputs.length) {
+                        inputs[nextIndex].focus();
+                    } else {
+                        inputElement.blur();
+               
+                        document.querySelector('button[type="submit"]').click();
                     }
                 }
             });
         });
 
         document.addEventListener('click', (event) => {
-            if (!event.target.closest('label')) {
-                labels.forEach(labelElement => {
-                    if (!labelElement.previousElementSibling || labelElement.previousElementSibling !== document.activeElement) {
-                        if (labelElement.previousElementSibling.value === '') {
-                            labelElement.style.top = "0";
-                            labelElement.style.fontSize = "16px";
-                            labelElement.style.color = "#000000";
-                            labelElement.style.transition = "top 1s, font-size 1s, transform 1s, color 1s";
-                            labelElement.style.transform = "translateY(0)";
-                        }
+            if (!event.target.closest('.input')) {
+                labels.forEach((labelElement, index) => {
+                    let inputElement = inputs[index];
+                    if (inputElement.value === '') {
+                        labelElement.style.top = "0";
+                        labelElement.style.fontSize = "16px";
+                        labelElement.style.color = "#000000";
+                        labelElement.style.transition = "top 1s, font-size 1s, transform 1s, color 1s";
+                        labelElement.style.transform = "translateY(0)";
                     }
                 });
             }
         });
-    }
-
-    document.addEventListener('DOMContentLoaded', checkInputs);
+    });
 </script>
