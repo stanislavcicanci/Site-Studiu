@@ -19,6 +19,7 @@
             </div>
         </div>
 
+<<<<<<< HEAD
         <form action="{{ route('login.post') }}" method="POST" class="content d-flex flex-wrap align-items-center">
            @csrf
            <div class="mesajele mt-5">
@@ -42,6 +43,9 @@
             </div>
         @endif
         </div>
+=======
+        <div class="content d-flex flex-wrap align-items-center">
+>>>>>>> 9ea495d8dc309218729fd4627d5baa047beb121b
             <img src={{ URL('images/Login.png') }} alt="">
             <div class="continut_log d-block justify-content-center align-items-center">
               <div class="text">
