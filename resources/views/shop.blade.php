@@ -3,6 +3,7 @@
 @section('header')
 @endsection
 @section('custom_css')
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <link href={{ URL('CSS/shop.css') }}  rel="stylesheet">
 
 @section('active3', 'activ')
@@ -15,127 +16,22 @@
 </div>
 
 <div class="all_prod d-flex justify-content-center align-items-center flex-wrap">
-    <div class="prod">
-      <div class="img">
-        <img src="{{ URL('images/iphone10.svg') }}" alt="">
-      </div>
-        <div class="cont d-flex align-items-center">
-            <h3>iPhone 10</h3>
-            <p>$1200</p>
-          <a href="">  <button class="addToCart">Add to cart  <i class="bi bi-cart-plus-fill"></i></button></a>
-        </div>
-    </div>
-    <div class="prod">
-        <div class="img">
-          <img src="{{ URL('images/iphone10.svg') }}" alt="">
-        </div>
-          <div class="cont d-flex align-items-center">
-              <h3>iPhone 10</h3>
-              <p>$1200</p>
-            <a href="">  <button class="addToCart">Add to cart  <i class="bi bi-cart-plus-fill"></i></button></a>
-          </div>
-      </div>
+  @foreach ($products as $product)
+  <a href="{{ route('prod.show', ['id' => $product->id]) }}" style="all: initial;">
       <div class="prod">
-        <div class="img">
-          <img src="{{ URL('images/iphone10.svg') }}" alt="">
-        </div>
+          <div class="img">
+              <img src="{{ URL('images/'.$product->image) }}" alt="">
+          </div>
           <div class="cont d-flex align-items-center">
-              <h3>iPhone 10</h3>
-              <p>$1200</p>
-            <a href="">  <button class="addToCart">Add to cart  <i class="bi bi-cart-plus-fill"></i></button></a>
+              <h3>{{ $product->name }}</h3>
+              <p>${{ $product->price }}</p>
+              <button class="addToCart">Add to cart  <i class="bi bi-cart-plus-fill"></i></button>
           </div>
       </div>
-      <div class="prod">
-        <div class="img">
-          <img src="{{ URL('images/iphone10.svg') }}" alt="">
-        </div>
-          <div class="cont d-flex align-items-center">
-              <h3>iPhone 10</h3>
-              <p>$1200</p>
-            <a href="">  <button class="addToCart">Add to cart  <i class="bi bi-cart-plus-fill"></i></button></a>
-          </div>
-      </div>
-      <div class="prod">
-        <div class="img">
-          <img src="{{ URL('images/iphone10.svg') }}" alt="">
-        </div>
-          <div class="cont d-flex align-items-center">
-              <h3>iPhone 10</h3>
-              <p>$1200</p>
-            <a href="">  <button class="addToCart">Add to cart  <i class="bi bi-cart-plus-fill"></i></button></a>
-          </div>
-      </div>
-      <div class="prod">
-        <div class="img">
-          <img src="{{ URL('images/iphone10.svg') }}" alt="">
-        </div>
-          <div class="cont d-flex align-items-center">
-              <h3>iPhone 10</h3>
-              <p>$1200</p>
-            <a href="">  <button class="addToCart">Add to cart  <i class="bi bi-cart-plus-fill"></i></button></a>
-          </div>
-      </div>
-      <div class="prod">
-        <div class="img">
-          <img src="{{ URL('images/iphone10.svg') }}" alt="">
-        </div>
-          <div class="cont d-flex align-items-center">
-              <h3>iPhone 10</h3>
-              <p>$1200</p>
-            <a href="">  <button class="addToCart">Add to cart  <i class="bi bi-cart-plus-fill"></i></button></a>
-          </div>
-      </div>
-      <div class="prod">
-        <div class="img">
-          <img src="{{ URL('images/iphone10.svg') }}" alt="">
-        </div>
-          <div class="cont d-flex align-items-center">
-              <h3>iPhone 10</h3>
-              <p>$1200</p>
-            <a href="">  <button class="addToCart">Add to cart  <i class="bi bi-cart-plus-fill"></i></button></a>
-          </div>
-      </div>
-      <div class="prod">
-        <div class="img">
-          <img src="{{ URL('images/iphone10.svg') }}" alt="">
-        </div>
-          <div class="cont d-flex align-items-center">
-              <h3>iPhone 10</h3>
-              <p>$1200</p>
-            <a href="">  <button class="addToCart">Add to cart  <i class="bi bi-cart-plus-fill"></i></button></a>
-          </div>
-      </div>
-      <div class="prod">
-        <div class="img">
-          <img src="{{ URL('images/iphone10.svg') }}" alt="">
-        </div>
-          <div class="cont d-flex align-items-center">
-              <h3>iPhone 10</h3>
-              <p>$1200</p>
-            <a href="">  <button class="addToCart">Add to cart  <i class="bi bi-cart-plus-fill"></i></button></a>
-          </div>
-      </div>
-      <div class="prod">
-        <div class="img">
-          <img src="{{ URL('images/iphone10.svg') }}" alt="">
-        </div>
-          <div class="cont d-flex align-items-center">
-              <h3>iPhone 10</h3>
-              <p>$1200</p>
-            <a href="">  <button class="addToCart">Add to cart  <i class="bi bi-cart-plus-fill"></i></button></a>
-          </div>
-      </div>
-      <div class="prod">
-        <div class="img">
-          <img src="{{ URL('images/iphone10.svg') }}" alt="">
-        </div>
-          <div class="cont d-flex align-items-center">
-              <h3>iPhone 10</h3>
-              <p>$1200</p>
-            <a href="">  <button class="addToCart">Add to cart  <i class="bi bi-cart-plus-fill"></i></button></a>
-          </div>
-      </div>
+  </a>
+  @endforeach
 </div>
+{{ $products->links() }}
 @endsection
 
 @section('eljos2')

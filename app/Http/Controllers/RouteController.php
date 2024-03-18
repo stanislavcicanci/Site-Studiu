@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Illuminate\Support\Facades\Session;
+use App\Models\Product;
 
 class RouteController extends Controller
 {
@@ -16,7 +17,8 @@ class RouteController extends Controller
     }
 
     public function Shop() {
-        return view('shop');
+        $products = Product::paginate(4);
+        return view('shop', compact('products'));
     
     }
 
@@ -29,6 +31,12 @@ class RouteController extends Controller
         return view('about');
     
     }
+
+    public function showProduct($id) {
+        $product = Product::find($id);
+        return view('prod', compact('product'));
+    }
+    
 
     public function Login() {
         if(Auth::check()) {
@@ -50,14 +58,19 @@ class RouteController extends Controller
             'username' => 'required',
             'password' => 'required',
         ]);
-
+    
         $credentials = $request->only('username', 'password');
         if (Auth::attempt($credentials)) {
+            if (Auth::user()->rol == 'admin') {
+                return redirect('products');
+            }
             return redirect()->intended(route('home'));
         }
         
         return redirect(route('login'))->with("error", "Invalid username or password");
     }
+    
+    
 
      public function SignupPost(Request $request) {
         $request->validate([
@@ -68,8 +81,6 @@ class RouteController extends Controller
     ], [
         'confirm_password.same' => 'Passwords do not match.',
     ]);
-
-        //  dd($request->username);
 
         $data['username'] = $request->username;
         $data['email'] = $request->email;

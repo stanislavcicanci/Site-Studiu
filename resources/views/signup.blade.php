@@ -19,7 +19,6 @@
             </div>
         </div>
 
-<<<<<<< HEAD
         <form action="{{ route('signup.post') }}" method="POST" class="content d-flex flex-wrap align-items-center">
             @csrf
             <div class="mesajele mt-5">
@@ -43,9 +42,6 @@
                 </div>
             @endif
             </div>
-=======
-        <div class="content d-flex flex-wrap align-items-center">
->>>>>>> 9ea495d8dc309218729fd4627d5baa047beb121b
             <img src={{ URL('images/Signup.png') }} alt="">
             <div class="continut_log d-block justify-content-center align-items-center">
               <div class="text">
@@ -138,7 +134,6 @@
         });
 
         document.addEventListener('click', (event) => {
-<<<<<<< HEAD
             if (!event.target.closest('.input')) {
                 labels.forEach((labelElement, index) => {
                     let inputElement = inputs[index];
@@ -148,18 +143,6 @@
                         labelElement.style.color = "#000000";
                         labelElement.style.transition = "top 1s, font-size 1s, transform 1s, color 1s";
                         labelElement.style.transform = "translateY(0)";
-=======
-            if (!event.target.closest('label')) {
-                labels.forEach(labelElement => {
-                    if (!labelElement.previousElementSibling || labelElement.previousElementSibling !== document.activeElement) {
-                        if (labelElement.previousElementSibling.value === '') {
-                            labelElement.style.top = "0";
-                            labelElement.style.fontSize = "16px";
-                            labelElement.style.color = "#000000";
-                            labelElement.style.transition = "top 0.5s, font-size 0.5s, transform 0.5s, color 0.5s";
-                            labelElement.style.transform = "translateY(0)";
-                        }
->>>>>>> 9ea495d8dc309218729fd4627d5baa047beb121b
                     }
                 });
             }

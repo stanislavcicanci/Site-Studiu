@@ -16,12 +16,16 @@
 }
 
 .prod{
+    width: 310px;
     position: relative;
 }
 
+.img{
+    width: 300px;
+}
 
 .prod img{
-    height: 418px;
+    height: 400px;
     width: 310px;
     margin-bottom: 10px;
 }
@@ -74,4 +78,14 @@
     display: block;
     transform: translateY(-69px);
     opacity: 1;
+}
+
+.pagination{
+    display: flex;
+    margin-top: 2vw !important;
+    justify-content: center;
+}
+.active>.page-link{
+    transform: translateY(69px) !important;
+    margin: 0 !important;
 }
